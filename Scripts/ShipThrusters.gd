@@ -144,4 +144,4 @@ func check_if_on_goal_tile():
 		if tile_data and tile_data.get_custom_data("is_end_tile"):
 			return true 
 	
-	return false
+	return false 
