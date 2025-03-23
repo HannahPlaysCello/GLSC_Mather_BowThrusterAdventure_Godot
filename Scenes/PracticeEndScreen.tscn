@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://nqe68ak2661c"]
+
+[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="1_jp0ke"]
+[ext_resource type="Script" path="res://Scripts/PracticeEndScreen.gd" id="1_mkhwq"]
+
+[node name="PracticeEndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_mkhwq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -995.0
+offset_top = -517.0
+offset_right = 1010.0
+offset_bottom = 534.0
+color = Color(0.360784, 0.584314, 0.596078, 1)
+
+[node name="GoodJob" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -268.5
+offset_right = 188.0
+offset_bottom = -157.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_jp0ke")
+theme_override_font_sizes/font_size = 90
+text = "Good job!"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -125.5
+offset_right = 193.0
+offset_bottom = -102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jp0ke")
+theme_override_font_sizes/font_size = 40
+text = "You finished the practice round with ___ collisions!"
+
+[node name="endScreenOptions" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_right = 204.0
+offset_bottom = 151.0
+grow_horizontal = 2
+focus_mode = 2
+
+[node name="challenge_mode" type="Button" parent="endScreenOptions"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jp0ke")
+theme_override_font_sizes/font_size = 60
+text = "Ready to play 
+the navigation challenge? "
+
+[node name="return_to_menu" type="Button" parent="endScreenOptions"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jp0ke")
+theme_override_font_sizes/font_size = 60
+text = "Return to Menu"

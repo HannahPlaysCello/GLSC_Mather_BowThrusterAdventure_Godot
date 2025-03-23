@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://cahffqal8yekd"]
+
+[ext_resource type="Script" path="res://Scripts/ChallengeMode.gd" id="1_2xit4"]
+[ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_n572g"]
+[ext_resource type="PackedScene" uid="uid://bcfooqbcg3g2n" path="res://Ships/ShipThrusters.tscn" id="3_lptt4"]
+[ext_resource type="PackedScene" uid="uid://dw3vejw387fa1" path="res://Maps/CollisionBend.tscn" id="4_nbihw"]
+[ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="5_domf5"]
+[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="6_cjn8x"]
+
+[node name="ChallengeMode" type="Node2D"]
+script = ExtResource("1_2xit4")
+normal_ship_scene = ExtResource("2_n572g")
+thruster_ship_scene = ExtResource("3_lptt4")
+river_map_scene = ExtResource("4_nbihw")
+harbor_map_scene = ExtResource("5_domf5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 1949.0
+offset_bottom = 1021.0
+color = Color(0.360784, 0.584314, 0.596078, 1)
+
+[node name="TileMapContainer" type="Node2D" parent="."]
+
+[node name="ShipSpawn" type="Node2D" parent="."]
+position = Vector2(40, 378)
+
+[node name="Labels" type="CanvasLayer" parent="."]
+
+[node name="PhaseLabel" type="Label" parent="Labels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -847.0
+offset_top = -473.0
+offset_right = -554.0
+offset_bottom = -399.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("6_cjn8x")
+theme_override_font_sizes/font_size = 36
+text = "Label text"
+
+[node name="ScoreLabel" type="Label" parent="Labels"]
+z_index = 10
+offset_left = 1714.0
+offset_top = 27.0
+offset_right = 1895.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("6_cjn8x")
+theme_override_font_sizes/font_size = 36
+text = "Collisions: 0"
+
+[node name="Overlay" type="Control" parent="Labels"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 1949.0
+offset_bottom = 1021.0
+
+[node name="ColorRect" type="ColorRect" parent="Labels/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -980.0
+offset_top = -515.0
+offset_right = 980.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0.584314, 0.596078, 0.278431)
+
+[node name="Label" type="Label" parent="Labels/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -109.0
+offset_right = 490.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_cjn8x")
+theme_override_font_sizes/font_size = 40
+text = "In 1964, the Mather became the first cargo ship on the 
+Great Lakes to have bow thrusters installed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Labels/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 125.5
+offset_right = 20.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_cjn8x")
+theme_override_font_sizes/font_size = 36
+text = "Press the start button to continue"

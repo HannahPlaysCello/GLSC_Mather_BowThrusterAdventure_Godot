@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://c40c7ptpwsydk"]
+
+[ext_resource type="Texture2D" uid="uid://bf6bxw5n21edk" path="res://Assets/StartScreen.PNG" id="1_ubdx5"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("1_ubdx5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 279.0
+offset_top = -362.0
+offset_right = 507.0
+offset_bottom = -339.0
+theme_override_colors/font_color = Color(0, 0, 0.00392157, 1)
+text = "Music: \"Riverboat Shuffle\" by "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -269.0
+offset_right = 505.0
+offset_bottom = -246.0
+theme_override_colors/font_color = Color(0, 0, 0.00392157, 1)
+text = "Font: from fontget.com
+"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = -172.0
+offset_right = 510.0
+offset_bottom = -122.0
+theme_override_colors/font_color = Color(0, 0, 0.00392157, 1)
+text = "developed using Godot"

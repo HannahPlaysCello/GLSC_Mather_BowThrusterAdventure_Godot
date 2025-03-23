@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=3 uid="uid://thlg4207iug7"]
+
+[ext_resource type="Script" path="res://Scripts/PracticeSetup.gd" id="1_24w18"]
+[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="2_5baep"]
+
+[node name="PracticeSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_24w18")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -965.0
+offset_top = -505.0
+offset_right = 965.0
+offset_bottom = 505.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0.584314, 0.596078, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.5
+offset_top = -376.0
+offset_right = 272.5
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 90
+text = "Select Your Ship"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -194.0
+offset_right = 20.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 60
+text = "Select Ship Mode"
+
+[node name="ShipContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -132.0
+offset_right = 321.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ShipNormal" type="Button" parent="ShipContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 30
+text = "1925: No Thrusters"
+
+[node name="ShipThrusters" type="Button" parent="ShipContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 30
+text = "1964: Thrusters"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 45.0
+offset_right = 136.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 60
+text = "Select Map
+"
+
+[node name="MapContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 129.0
+offset_right = 500.0
+offset_bottom = 229.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="MapRiver" type="Button" parent="MapContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 30
+text = "Collision Bend"
+
+[node name="MapPort" type="Button" parent="MapContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5baep")
+theme_override_font_sizes/font_size = 30
+text = "Cleveland Harbor"

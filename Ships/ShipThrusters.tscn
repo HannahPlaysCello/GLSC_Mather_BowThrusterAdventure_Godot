@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcfooqbcg3g2n"]
+
+[ext_resource type="Script" path="res://Scripts/ShipThrusters.gd" id="1_vbr4e"]
+[ext_resource type="Texture2D" uid="uid://ce34528iuh0td" path="res://Assets/MatherV2-128.png" id="2_ushdp"]
+[ext_resource type="Texture2D" uid="uid://d2126yl3t412r" path="res://Assets/MatherV0.3.PNG" id="3_hu52x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxtwa"]
+atlas = ExtResource("2_ushdp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m05o"]
+atlas = ExtResource("2_ushdp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i7eo"]
+atlas = ExtResource("2_ushdp")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur8qc"]
+atlas = ExtResource("2_ushdp")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sde1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hu52x")
+}],
+"loop": true,
+"name": &"MatherV0.3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxtwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m05o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i7eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur8qc")
+}],
+"loop": true,
+"name": &"SlowRock",
+"speed": 1.0
+}]
+
+[node name="ShipThrusters" type="CharacterBody2D"]
+script = ExtResource("1_vbr4e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+limit_left = 0
+limit_top = -1340
+limit_right = 8768
+limit_bottom = 1440
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 63)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sde1r")
+animation = &"MatherV0.3"
+offset = Vector2(64, -31.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, -3)
+polygon = PackedVector2Array(249, 34, 248, 68, 18, 67, -3, 34)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://btk1xi0hf0qnh"]
+
+[node name="GameOverScreen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = -26.0
+offset_right = 1956.0
+offset_bottom = 1035.0
+color = Color(0.360784, 0.584314, 0.596078, 1)

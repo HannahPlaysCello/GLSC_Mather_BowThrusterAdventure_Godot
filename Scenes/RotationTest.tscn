@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba42er1n4uqa4"]
+
+[ext_resource type="Script" path="res://Scripts/rotation_test.gd" id="1_v8qxs"]
+[ext_resource type="Texture2D" uid="uid://d2126yl3t412r" path="res://Assets/MatherV0.3.PNG" id="2_pon3y"]
+
+[node name="RotationTest" type="Node2D"]
+position = Vector2(266, 219)
+script = ExtResource("1_v8qxs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pon3y")
