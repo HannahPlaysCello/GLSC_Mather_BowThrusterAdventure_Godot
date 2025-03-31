@@ -55,6 +55,16 @@ public partial class SerialReader : Node
 		}
 	}
 
+	private void SimulateInputEvent(string action, bool pressed)
+	{
+		var inputEvent = new InputEventAction
+		{
+			Action = action,
+			Pressed = pressed
+		};
+		Input.ParseInputEvent(inputEvent);
+	}
+
 	private void TryConnect()
 	{
 		try

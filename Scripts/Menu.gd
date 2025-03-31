@@ -18,6 +18,9 @@ func _input(event):
 	elif event.is_action_pressed("move_forward"):  #space or enter
 		handle_selection()
 
+	if event is InputEventAction:
+		print("Input Detected: ", event.action, " | Pressed: ", event.pressed)
+
 func update_selection():
 	for i in range(buttons.size()):
 		buttons[i].modulate = Color(1, 1, 1, 1)
