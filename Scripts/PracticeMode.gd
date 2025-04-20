@@ -21,9 +21,9 @@ func _ready():
 	spawn_selected_ship()
 	add_child(instruction_popup)
 	
-	var instructions := "Use the wheel to steer the ship using the rudder. Press the start button to move forward."
+	var instructions := "Use the wheel to steer the ship using the rudder. Press the green start button to start and stop the ship."
 	if GameState.selected_ship == GameState.ShipType.THRUSTERS:
-		instructions = "Use the wheel to steer the ship using the rudder to steer & the triangular buttons to move sideways with the thrusters. Press the start button to move forward."
+		instructions = "Use the wheel to steer the ship using the rudder & the triangular buttons to move sideways with the thrusters. Press the green start button to start and stop the ship."
 
 	instruction_popup.show_popup(instructions)
 	instruction_popup.popup_dismissed.connect(on_popup_dismissed) 

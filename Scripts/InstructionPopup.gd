@@ -13,10 +13,13 @@ func show_popup(text: String):
 	set_process_input(true)
 	center_popup()
 
-func center_popup():
+func center_popup(offset_y := -150):
 	var screen_size = get_viewport_rect().size
-	var popup_size = $Panel.size  # Adjust based on actual Panel size
-	$Panel.position = (screen_size - popup_size) / 2
+	var popup_size = $Panel.size
+	
+	var x = (screen_size.x - popup_size.x) / 2
+	var y = (screen_size.y - popup_size.y) / 2 + offset_y
+	$Panel.position = Vector2(x, y)
 
 func _input(event):
 	if event.is_action_pressed("move_forward"):

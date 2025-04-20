@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nqe68ak2661c"]
 
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="1_jp0ke"]
+[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://UI/Suchet.otf" id="1_jp0ke"]
 [ext_resource type="Script" path="res://Scripts/PracticeEndScreen.gd" id="1_mkhwq"]
 
 [node name="PracticeEndScreen" type="Control"]

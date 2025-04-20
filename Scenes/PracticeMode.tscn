@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://du7eanxypg5e1"]
+[gd_scene load_steps=8 format=3 uid="uid://du7eanxypg5e1"]
 
 [ext_resource type="Script" path="res://Scripts/PracticeMode.gd" id="1_spxqi"]
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="2_dy6td"]
 [ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_ng7pg"]
 [ext_resource type="PackedScene" uid="uid://bcfooqbcg3g2n" path="res://Ships/ShipThrusters.tscn" id="3_u0wbg"]
 [ext_resource type="PackedScene" uid="uid://dw3vejw387fa1" path="res://Maps/CollisionBend.tscn" id="4_re3g1"]
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="6_uf7mc"]
+[ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="6_75lfx"]
+[ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_muivb"]
 
 [node name="PracticeMode" type="Node2D"]
 script = ExtResource("1_spxqi")
@@ -15,9 +16,9 @@ river_map_scene = ExtResource("4_re3g1")
 harbor_map_scene = ExtResource("2_dy6td")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_top = -866.0
-offset_right = 4513.0
-offset_bottom = 2105.0
+offset_top = -126.0
+offset_right = 1991.0
+offset_bottom = 1123.0
 color = Color(0.360784, 0.584314, 0.596078, 1)
 
 [node name="SpawnShip" type="Node2D" parent="."]
@@ -25,12 +26,21 @@ position = Vector2(15, 375)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-z_index = 5
-offset_left = 1714.0
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 1644.0
 offset_top = 27.0
 offset_right = 1895.0
-offset_bottom = 72.0
-theme_override_fonts/font = ExtResource("6_uf7mc")
+offset_bottom = 93.0
+theme_override_styles/panel = ExtResource("6_75lfx")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+z_index = 5
+offset_left = 1644.0
+offset_top = 27.0
+offset_right = 1895.0
+offset_bottom = 93.0
+theme = ExtResource("7_muivb")
 theme_override_font_sizes/font_size = 36
 text = "Collisions: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

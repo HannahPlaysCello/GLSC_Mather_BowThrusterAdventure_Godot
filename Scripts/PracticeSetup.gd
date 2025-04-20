@@ -57,13 +57,13 @@ func update_selection():
 	elif current_step == Step.MAP_SELECTION:
 		options = map_buttons
 
-	for option in options:
-		option.modulate = Color(1, 1, 1, 1)
+	#for option in options:
+		#option.modulate = Color(1, 1, 1, 1)
 	
 	if current_step == Step.SHIP_SELECTION:
-		options[selected_ship].modulate = Color(1, 1, 0, 1)  #highlight selected ship
+		options[selected_ship].grab_focus();  #highlight selected ship
 	elif current_step == Step.MAP_SELECTION:
-		options[selected_map].modulate = Color(1, 1, 0, 1)  #highlight selected map
+		options[selected_map].grab_focus();  #highlight selected map
 
 func start_practice_game():
 	GameState.selected_ship = selected_ship

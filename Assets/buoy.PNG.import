@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m066ymk033dh"
-path="res://.godot/imported/TempLand16.png-c5aeaf30e3ccb1edd5c6de9c68c2bf8c.ctex"
+uid="uid://bkiervga5makc"
+path="res://.godot/imported/buoy.PNG-253179a8016b201293cb22e830aae1d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TempLand16.png"
-dest_files=["res://.godot/imported/TempLand16.png-c5aeaf30e3ccb1edd5c6de9c68c2bf8c.ctex"]
+source_file="res://Assets/buoy.PNG"
+dest_files=["res://.godot/imported/buoy.PNG-253179a8016b201293cb22e830aae1d7.ctex"]
 
 [params]
 

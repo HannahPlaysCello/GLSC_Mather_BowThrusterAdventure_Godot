@@ -32,7 +32,7 @@ func _ready() -> void:
 	GameState.reset_collision_count()
 	overlay.visible = false
 	start_phase(Phase.NAVIGATE_NO_THRUST)
-	show_instruction("Navigate using rudder controls. Press Move Forward to start.", _on_first_instruction_dismissed)
+	show_instruction("Use the wheel to steer the ship using the rudder. Press the green start button to start and stop the ship.", _on_first_instruction_dismissed)
 
 func show_instruction(message: String, callback: Callable) -> void:
 	instruction_popup.show_popup(message)
@@ -52,7 +52,7 @@ func _input(event: InputEvent) -> void:
 			Phase.TRANSITION:
 				overlay.visible = false
 				start_phase(Phase.NAVIGATE_WITH_THRUST)
-				show_instruction("You now have bow thrusters! Use them to move sideways. Press Move Forward to start.", _on_second_instruction_dismissed)
+				show_instruction("You now have bow thrusters! Use the triangular buttons to move sideways with the thrusters.", _on_second_instruction_dismissed)
 			_:
 				pass
 
@@ -63,28 +63,27 @@ func start_phase(phase: Phase) -> void:
 	current_phase = phase
 	match phase:
 		Phase.NAVIGATE_NO_THRUST:
-			phase_label.text = "Navigate Collision Bend without Thrusters"
+			phase_label.text = "Can you navigate Collision Bend without thrusters?"
 			load_map(river_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.HARBOR_NO_THRUST:
-			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port?"
+			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port using your thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.TRANSITION:
 			overlay.visible = true
-			overlay.get_node("Label").text = "In 1964, state-of-the-art bow thrusters were installed in the Mather!\nPress Move Forward to continue."
+			overlay.get_node("Label").text = "In 1964, state-of-the-art bow thrusters were installed in the Mather!\nPress the green button to continue."
 		Phase.NAVIGATE_WITH_THRUST:
-			phase_label.text = "Navigate Collision Bend with Thrusters"
+			phase_label.text = "Try navigating Collision Bend with bow thrusters"
 			load_map(river_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
 			can_advance = false
 			await get_tree().create_timer(1.0).timeout
 			can_advance = true
 		Phase.HARBOR_WITH_THRUST:
-			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port?"
+			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port using your thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
-	#print("Started phase: ", phase, "Collision count:", GameState.collision_count)
 
 func load_map(map_scene: PackedScene) -> void:
 	if tilemap:

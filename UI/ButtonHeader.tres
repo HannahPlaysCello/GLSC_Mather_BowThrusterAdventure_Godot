@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b57m6bdaqakuj"]
+
+[ext_resource type="FontFile" uid="uid://ej6gkbqtit1p" path="res://UI/ChakraPetch-Bold.ttf" id="1_istrl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyfl3"]
+bg_color = Color(0.74902, 0.176471, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqdvi"]
+bg_color = Color(0.74902, 0.176471, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iss7"]
+bg_color = Color(0.360784, 0.584314, 0.596078, 1)
+border_width_left = 5
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0.360784, 0.584314, 0.596078, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_istrl")
+Button/styles/focus = SubResource("StyleBoxFlat_qyfl3")
+Button/styles/hover = SubResource("StyleBoxFlat_tqdvi")
+Button/styles/normal = SubResource("StyleBoxFlat_8iss7")

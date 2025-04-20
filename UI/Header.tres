@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqxlteoiwgwtx"]
+
+[ext_resource type="FontFile" uid="uid://ej6gkbqtit1p" path="res://UI/ChakraPetch-Bold.ttf" id="1_lyu5o"]
+
+[resource]
+Label/colors/font_color = Color(0.74902, 0.176471, 0.196078, 1)
+Label/font_sizes/font_size = 90
+Label/fonts/font = ExtResource("1_lyu5o")

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://thlg4207iug7"]
+[gd_scene load_steps=6 format=3 uid="uid://thlg4207iug7"]
 
 [ext_resource type="Script" path="res://Scripts/PracticeSetup.gd" id="1_24w18"]
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="2_5baep"]
+[ext_resource type="Texture2D" uid="uid://bf6bxw5n21edk" path="res://Assets/StartScreen.PNG" id="2_x4fdl"]
+[ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="3_e1b4a"]
+[ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="3_wlwnd"]
+[ext_resource type="Theme" uid="uid://b57m6bdaqakuj" path="res://UI/ButtonHeader.tres" id="4_rd0cb"]
 
 [node name="PracticeSetup" type="Control"]
 layout_mode = 3
@@ -14,20 +17,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_24w18")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("2_x4fdl")
+
+[node name="ButtonPannel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -965.0
-offset_top = -505.0
-offset_right = 965.0
-offset_bottom = 505.0
+offset_left = -558.5
+offset_top = -318.5
+offset_right = 558.5
+offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.360784, 0.584314, 0.596078, 1)
+theme_override_styles/panel = ExtResource("3_wlwnd")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -36,15 +53,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -272.5
-offset_top = -376.0
-offset_right = 272.5
-offset_bottom = -265.0
+offset_left = -506.5
+offset_top = -280.0
+offset_right = 506.5
+offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 90
+theme = ExtResource("3_e1b4a")
 text = "Select Your Ship"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 1
@@ -53,15 +70,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -194.0
-offset_right = 20.0
-offset_bottom = -171.0
+offset_left = -239.5
+offset_top = -134.0
+offset_right = 239.5
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("3_e1b4a")
+theme_override_font_sizes/font_size = 58
 text = "Select Ship Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ShipContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1000, 100)
@@ -71,24 +90,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -132.0
-offset_right = 321.0
-offset_bottom = -92.0
+offset_left = -500.0
+offset_top = -49.0
+offset_right = 500.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="ShipNormal" type="Button" parent="ShipContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("4_rd0cb")
 text = "1925: No Thrusters"
 
 [node name="ShipThrusters" type="Button" parent="ShipContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("4_rd0cb")
 text = "1964: Thrusters"
 
 [node name="Label2" type="Label" parent="."]
@@ -96,15 +114,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -136.0
-offset_top = 45.0
-offset_right = 136.0
-offset_bottom = 119.0
+offset_left = -153.0
+offset_top = 70.0
+offset_right = 153.0
+offset_bottom = 146.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("3_e1b4a")
+theme_override_font_sizes/font_size = 58
 text = "Select Map
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MapContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1000, 100)
@@ -113,20 +133,19 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -500.0
-offset_top = 129.0
+offset_top = 154.0
 offset_right = 500.0
-offset_bottom = 229.0
+offset_bottom = 254.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="MapRiver" type="Button" parent="MapContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("4_rd0cb")
 text = "Collision Bend"
 
 [node name="MapPort" type="Button" parent="MapContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5baep")
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("4_rd0cb")
 text = "Cleveland Harbor"

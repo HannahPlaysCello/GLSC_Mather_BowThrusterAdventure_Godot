@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://y5n78un12108"
-path="res://.godot/imported/Suchet.otf-a7006516284b7d2ca32c93bd48a39650.fontdata"
+uid="uid://ej6gkbqtit1p"
+path="res://.godot/imported/ChakraPetch-Bold.ttf-3e023fadb09376d8fab9e6b1ceace10a.fontdata"
 
 [deps]
 
-source_file="res://Assets/Suchet.otf"
-dest_files=["res://.godot/imported/Suchet.otf-a7006516284b7d2ca32c93bd48a39650.fontdata"]
+source_file="res://UI/ChakraPetch-Bold.ttf"
+dest_files=["res://.godot/imported/ChakraPetch-Bold.ttf-3e023fadb09376d8fab9e6b1ceace10a.fontdata"]
 
 [params]
 

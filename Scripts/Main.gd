@@ -7,7 +7,7 @@ func change_scene(scene_path: String):
 
 #timeout
 var idle_timer = 0
-const IDLE_TIME_LIMIT = 30.0  #change this for timeout timer
+const IDLE_TIME_LIMIT = 120.0  #change this for timeout timer
 
 #serial stuff here 
 func _ready():
@@ -20,42 +20,42 @@ func _ready():
 		print("Error: SerialReader not found")
 
 func _on_serial_data_received(data):
-	#print("Received from Arduino: ", data)
+	idle_timer = 0
 	handle_serial_command(data)
 
 #handle serial data
-func handle_serial_command(data: String):
-	var event = InputEventAction.new()
+var encoder_delta = 0.0
 
-	match data:
-		"BTN_1_PRESSED":
-			event.action = "move_forward"
-			event.pressed = true
-		"BTN_1_RELEASED":
-			event.action = "move_forward"
-			event.pressed = false
-		"BTN_2_PRESSED":
-			event.action = "thruster_left"
-			event.pressed = true
-		"BTN_2_RELEASED":
-			event.action = "thruster_left"
-			event.pressed = false
-		"BTN_3_PRESSED":
-			event.action = "thruster_right"
-			event.pressed = true
-		"BTN_3_RELEASED":
-			event.action = "thruster_right"
-			event.pressed = false
-		"ROT_LEFT":
-			event.action = "rudder_left"
-			event.pressed = true
-		"ROT_RIGHT":
-			event.action = "rudder_right"
-			event.pressed = true
-		_:
-			print("Unknown command:", data)
-			return
-	Input.parse_input_event(event)
+func handle_serial_command(data: String):
+	if data.begins_with("encoderDelta "):
+		var delta_value = data.replace("encoderDelta ", "").to_float()
+		encoder_delta = delta_value
+	else:
+		var event = InputEventAction.new()
+
+		match data:
+			"BTN_1_PRESSED":
+				event.action = "move_forward"
+				event.pressed = true
+			"BTN_1_RELEASED":
+				event.action = "move_forward"
+				event.pressed = false
+			"BTN_2_PRESSED":
+				event.action = "thruster_left"
+				event.pressed = true
+			"BTN_2_RELEASED":
+				event.action = "thruster_left"
+				event.pressed = false
+			"BTN_3_PRESSED":
+				event.action = "thruster_right"
+				event.pressed = true
+			"BTN_3_RELEASED":
+				event.action = "thruster_right"
+				event.pressed = false
+			_:
+				print("Unknown command:", data)
+				return
+		Input.parse_input_event(event)
 
 func _process(delta):
 	if Input.is_anything_pressed():

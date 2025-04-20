@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdk4v1y472ymq"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeEndScreen.gd" id="1_0x4w1"]
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="1_q4jqx"]
+[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://UI/Suchet.otf" id="1_q4jqx"]
 
 [node name="ChallengeEndScreen" type="Control"]
 layout_mode = 3

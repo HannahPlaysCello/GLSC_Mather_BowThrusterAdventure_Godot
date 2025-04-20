@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://domomr7tsc81s"]
+
+[ext_resource type="Texture2D" uid="uid://bkiervga5makc" path="res://Assets/buoy.PNG" id="1_dsnfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5b1t"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbgrn"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86ft8"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27gwu"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbemd"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qfx"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(32, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fyx8"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(64, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aabjg"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orl3c"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(0, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2amk"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(32, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycsx5"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(64, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocjwr"]
+atlas = ExtResource("1_dsnfb")
+region = Rect2(96, 128, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54alx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5b1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbgrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86ft8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27gwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbemd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fyx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aabjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orl3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2amk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycsx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocjwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Buoy" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_54alx")
+autoplay = "default"
+frame_progress = 0.565574
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, -28, 16, -12, 19, 32, 26, 32, 32, 35, 32, 58, 26, 62, 12, 64, -12, 64, -26, 62, -32, 58, -32, 36, -26, 32, -19, 32, -16, -12, -16, -28, -22, -44, -22, -51, -12, -52, 12, -52, 22, -51, 22, -44)

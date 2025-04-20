@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cahffqal8yekd"]
+[gd_scene load_steps=8 format=3 uid="uid://cahffqal8yekd"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeMode.gd" id="1_2xit4"]
 [ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_n572g"]
 [ext_resource type="PackedScene" uid="uid://bcfooqbcg3g2n" path="res://Ships/ShipThrusters.tscn" id="3_lptt4"]
 [ext_resource type="PackedScene" uid="uid://dw3vejw387fa1" path="res://Maps/CollisionBend.tscn" id="4_nbihw"]
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="5_domf5"]
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://Assets/Suchet.otf" id="6_cjn8x"]
+[ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_dtltn"]
+[ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="7_h7cxx"]
 
 [node name="ChallengeMode" type="Node2D"]
 script = ExtResource("1_2xit4")
@@ -28,33 +29,50 @@ position = Vector2(40, 378)
 
 [node name="Labels" type="CanvasLayer" parent="."]
 
+[node name="Panel2" type="Panel" parent="Labels"]
+offset_left = 25.0
+offset_top = 27.0
+offset_right = 675.0
+offset_bottom = 150.0
+theme_override_styles/panel = ExtResource("7_h7cxx")
+
 [node name="PhaseLabel" type="Label" parent="Labels"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -847.0
-offset_top = -473.0
-offset_right = -554.0
-offset_bottom = -399.0
+offset_left = -920.0
+offset_top = -475.0
+offset_right = -285.0
+offset_bottom = -350.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("6_cjn8x")
+theme = ExtResource("7_dtltn")
 theme_override_font_sizes/font_size = 36
 text = "Label text"
+autowrap_mode = 3
+
+[node name="Panel" type="Panel" parent="Labels"]
+offset_left = 1644.0
+offset_top = 27.0
+offset_right = 1895.0
+offset_bottom = 93.0
+theme_override_styles/panel = ExtResource("7_h7cxx")
 
 [node name="ScoreLabel" type="Label" parent="Labels"]
 z_index = 10
-offset_left = 1714.0
-offset_top = 27.0
-offset_right = 1895.0
-offset_bottom = 72.0
-theme_override_fonts/font = ExtResource("6_cjn8x")
+offset_left = 1640.0
+offset_top = 25.0
+offset_right = 1901.0
+offset_bottom = 100.0
+theme = ExtResource("7_dtltn")
 theme_override_font_sizes/font_size = 36
 text = "Collisions: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Overlay" type="Control" parent="Labels"]
 layout_mode = 3
@@ -72,12 +90,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -980.0
-offset_top = -515.0
+offset_top = -762.0
 offset_right = 980.0
-offset_bottom = 515.0
+offset_bottom = 747.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.360784, 0.584314, 0.596078, 0.278431)
+
+[node name="Panel" type="Panel" parent="Labels/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -697.0
+offset_top = -149.5
+offset_right = 697.0
+offset_bottom = 149.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_h7cxx")
 
 [node name="Label" type="Label" parent="Labels/Overlay"]
 layout_mode = 1
@@ -86,18 +119,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -490.0
-offset_top = -109.0
-offset_right = 490.0
-offset_bottom = 112.0
+offset_left = -671.0
+offset_top = -143.5
+offset_right = 671.0
+offset_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_cjn8x")
-theme_override_font_sizes/font_size = 40
-text = "In 1964, the Mather became the first cargo ship on the 
-Great Lakes to have bow thrusters installed!"
+theme = ExtResource("7_dtltn")
+theme_override_font_sizes/font_size = 50
+text = "In 1964, the William G. Mather became the first cargo ship on the Great Lakes to have bow thrusters installed!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="Labels/Overlay"]
 layout_mode = 1
@@ -106,12 +139,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 125.5
-offset_right = 20.0
-offset_bottom = 148.5
+offset_left = -294.0
+offset_top = 55.0
+offset_right = 294.0
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_cjn8x")
+theme = ExtResource("7_dtltn")
 theme_override_font_sizes/font_size = 36
 text = "Press the start button to continue"
