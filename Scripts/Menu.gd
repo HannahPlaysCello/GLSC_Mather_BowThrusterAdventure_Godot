@@ -37,4 +37,4 @@ func handle_selection():
 		0: Main.change_scene("res://Scenes/PracticeSetup.tscn")
 		1: Main.change_scene("res://Scenes/ChallengeMode.tscn")
 		2: Main.change_scene("res://Scenes/LearnMore.tscn")
-		3: Main.change_scene("res://Scenes/Credits.tscn")
+		#3: Main.change_scene("res://Scenes/Credits.tscn")

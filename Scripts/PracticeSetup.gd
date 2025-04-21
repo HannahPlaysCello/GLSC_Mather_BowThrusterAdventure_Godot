@@ -56,9 +56,6 @@ func update_selection():
 		options = ship_buttons
 	elif current_step == Step.MAP_SELECTION:
 		options = map_buttons
-
-	#for option in options:
-		#option.modulate = Color(1, 1, 1, 1)
 	
 	if current_step == Step.SHIP_SELECTION:
 		options[selected_ship].grab_focus();  #highlight selected ship

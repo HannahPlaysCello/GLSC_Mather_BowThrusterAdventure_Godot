@@ -67,7 +67,7 @@ func start_phase(phase: Phase) -> void:
 			load_map(river_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.HARBOR_NO_THRUST:
-			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port using your thrusters?"
+			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port without thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.TRANSITION:

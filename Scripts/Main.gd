@@ -7,7 +7,7 @@ func change_scene(scene_path: String):
 
 #timeout
 var idle_timer = 0
-const IDLE_TIME_LIMIT = 120.0  #change this for timeout timer
+const IDLE_TIME_LIMIT = 30.0  #change this for timeout timer
 
 #serial stuff here 
 func _ready():

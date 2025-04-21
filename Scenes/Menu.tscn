@@ -66,6 +66,14 @@ theme = ExtResource("3_nnhyv")
 theme_override_font_sizes/font_size = 90
 text = "Bow Thruster Adventure!"
 
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -267.0
+offset_top = -175.0
+offset_right = 286.0
+offset_bottom = -35.0
+theme_override_styles/panel = ExtResource("4_3tegn")
+
 [node name="Page Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -73,10 +81,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 129.0
-offset_top = -172.0
-offset_right = 587.0
-offset_bottom = 22.0
+offset_left = -223.0
+offset_top = -205.0
+offset_right = 235.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_nnhyv")
@@ -86,9 +94,9 @@ vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -656.0
+offset_left = -672.0
 offset_top = 209.0
-offset_right = 694.0
+offset_right = 678.0
 offset_bottom = 289.0
 theme_override_styles/panel = ExtResource("4_3tegn")
 
@@ -97,9 +105,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -631.0
+offset_left = -648.0
 offset_top = 209.0
-offset_right = 671.0
+offset_right = 654.0
 offset_bottom = 289.0
 grow_horizontal = 2
 theme = ExtResource("3_nnhyv")
@@ -130,18 +138,12 @@ text = "Practice Mode"
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme = ExtResource("4_5dla4")
-text = "Play the 
-Bow Thruster Challenge!"
+text = "Play the Bow Thruster Challenge!"
+autowrap_mode = 3
 
 [node name="Learn More" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme = ExtResource("4_5dla4")
-text = "Learn More about Bow Thrusters
-on the Willie G"
-
-[node name="Credits" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme = ExtResource("4_5dla4")
-text = "Credits"
+text = "Learn More about Bow Thrusters on the Steamship Mather"
+autowrap_mode = 3

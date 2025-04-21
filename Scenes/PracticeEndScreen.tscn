@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://nqe68ak2661c"]
+[gd_scene load_steps=6 format=3 uid="uid://nqe68ak2661c"]
 
-[ext_resource type="FontFile" uid="uid://y5n78un12108" path="res://UI/Suchet.otf" id="1_jp0ke"]
 [ext_resource type="Script" path="res://Scripts/PracticeEndScreen.gd" id="1_mkhwq"]
+[ext_resource type="Texture2D" uid="uid://bf6bxw5n21edk" path="res://Assets/StartScreen.PNG" id="2_o3neu"]
+[ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="3_tnijf"]
+[ext_resource type="Theme" uid="uid://b57m6bdaqakuj" path="res://UI/ButtonHeader.tres" id="4_myyke"]
+[ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="4_ruet3"]
 
 [node name="PracticeEndScreen" type="Control"]
 layout_mode = 3
@@ -15,13 +18,19 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_mkhwq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -995.0
-offset_top = -517.0
-offset_right = 1010.0
-offset_bottom = 534.0
-color = Color(0.360784, 0.584314, 0.596078, 1)
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("2_o3neu")
 
 [node name="GoodJob" type="Label" parent="."]
 layout_mode = 1
@@ -36,9 +45,16 @@ offset_bottom = -157.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_jp0ke")
-theme_override_font_sizes/font_size = 90
+theme = ExtResource("3_tnijf")
 text = "Good job!"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -489.5
+offset_top = -140.5
+offset_right = 485.5
+offset_bottom = -87.5
+theme_override_styles/panel = ExtResource("4_ruet3")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 1
@@ -52,9 +68,11 @@ offset_right = 193.0
 offset_bottom = -102.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_jp0ke")
+theme = ExtResource("3_tnijf")
 theme_override_font_sizes/font_size = 40
 text = "You finished the practice round with ___ collisions!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="endScreenOptions" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -66,16 +84,15 @@ offset_right = 204.0
 offset_bottom = 151.0
 grow_horizontal = 2
 focus_mode = 2
+theme_override_constants/separation = 20
 
 [node name="challenge_mode" type="Button" parent="endScreenOptions"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_jp0ke")
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("4_myyke")
 text = "Ready to play 
 the navigation challenge? "
 
 [node name="return_to_menu" type="Button" parent="endScreenOptions"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_jp0ke")
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("4_myyke")
 text = "Return to Menu"

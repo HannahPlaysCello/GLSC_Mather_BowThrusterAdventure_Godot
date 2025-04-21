@@ -74,7 +74,14 @@ func _physics_process(delta: float) -> void:
 	Main.encoder_delta = lerp(Main.encoder_delta, 0.0, turn_deceleration * delta)
 	var sensitivity_exponent = 0.8  
 	var adjusted_input = sign(Main.encoder_delta) * pow(abs(Main.encoder_delta), sensitivity_exponent)
-	var target_turn_velocity = adjusted_input * turn_speed
+	
+	#test
+	var keyboard_input = Input.get_action_strength("rudder_right") - Input.get_action_strength("rudder_left")
+	var combined_input = adjusted_input + keyboard_input
+	var target_turn_velocity = combined_input * turn_speed
+	#var target_turn_velocity = adjusted_input * turn_speed
+	#end test
+	
 	current_turn_velocity = move_toward(current_turn_velocity, target_turn_velocity, turn_acceleration * delta)
 	rotation += current_turn_velocity * delta
 	
