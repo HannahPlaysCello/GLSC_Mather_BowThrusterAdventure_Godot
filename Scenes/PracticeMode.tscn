@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://du7eanxypg5e1"]
+[gd_scene load_steps=10 format=3 uid="uid://du7eanxypg5e1"]
 
 [ext_resource type="Script" path="res://Scripts/PracticeMode.gd" id="1_spxqi"]
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="2_dy6td"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dw3vejw387fa1" path="res://Maps/CollisionBend.tscn" id="4_re3g1"]
 [ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="6_75lfx"]
 [ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_muivb"]
+[ext_resource type="Texture2D" uid="uid://ou1mkgxishfd" path="res://Assets/compassBackground.PNG" id="8_tl21h"]
+[ext_resource type="Texture2D" uid="uid://143ssnrumjs4" path="res://Assets/compassPointer.PNG" id="9_ay3mt"]
 
 [node name="PracticeMode" type="Node2D"]
 script = ExtResource("1_spxqi")
@@ -44,3 +46,13 @@ theme_override_font_sizes/font_size = 36
 text = "Collisions: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CompassBase" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("8_tl21h")
+
+[node name="CompassArrow" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ay3mt")

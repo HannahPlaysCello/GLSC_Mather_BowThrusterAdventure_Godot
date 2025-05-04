@@ -22,10 +22,19 @@ func _input(event):
 		handle_selection()
 
 func update_selection():
-	for i in range(buttons.size()):
-		buttons[i].modulate = Color(1, 1, 1, 1)
+	buttons[selected_index].grab_focus()
+	#for i in range(buttons.size()):
+	#	buttons[i].modulate = Color(1, 1, 1, 1)
 	
-	buttons[selected_index].modulate = Color(1, 1, 0, 1)  #rgba = yellow
+	#buttons[selected_index].modulate = Color(1, 1, 0, 1)  #rgba = yellow
+
+#func update_selection():
+	#buttons[selected_index].grab_focus()
+	#for i in range(buttons.size()):
+		#buttons[selected_index].grab_focus()
+		#buttons[i].modulate = Color(1, 1, 1, 1)
+	
+	#buttons[selected_index].modulate = Color(1, 1, 0, 1)  #rgba = yellow
 
 func handle_selection():
 	match selected_index:

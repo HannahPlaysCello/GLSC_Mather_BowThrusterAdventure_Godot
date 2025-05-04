@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	
 	#TURNING
 	Main.encoder_delta = lerp(Main.encoder_delta, 0.0, turn_deceleration * delta)
-	#non linear so boat doesn't jump
+	#non linear=-86eqdoesn't jump
 	var sensitivity_exponent = 0.8  
 	var adjusted_input = sign(Main.encoder_delta) * pow(abs(Main.encoder_delta), sensitivity_exponent)
 	

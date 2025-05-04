@@ -29,10 +29,7 @@ func _on_return_to_menu_pressed():
 	Main.change_scene("res://Scenes/Menu.tscn")
 	
 func update_selection():
-	for i in range(buttons.size()):
-		buttons[i].modulate = Color(1, 1, 1, 1)
-	
-	buttons[selected_index].modulate = Color(1, 1, 0, 1)  #rgba = yellow
+	buttons[selected_index].grab_focus()
 
 func handle_selection():
 	match selected_index:

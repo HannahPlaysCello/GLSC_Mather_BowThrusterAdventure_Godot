@@ -67,12 +67,12 @@ func start_phase(phase: Phase) -> void:
 			load_map(river_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.HARBOR_NO_THRUST:
-			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port without thrusters?"
+			phase_label.text = "Can you navigate the Mather into port without thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(normal_ship_scene)
 		Phase.TRANSITION:
 			overlay.visible = true
-			overlay.get_node("Label").text = "In 1964, state-of-the-art bow thrusters were installed in the Mather!\nPress the green button to continue."
+			overlay.get_node("Label").text = "In 1964, the William G. Mather became the first cargo ship on the Great Lakes to have bow thrusters installed!\nPress the green button to continue."
 		Phase.NAVIGATE_WITH_THRUST:
 			phase_label.text = "Try navigating Collision Bend with bow thrusters"
 			load_map(river_map_scene)
@@ -81,7 +81,7 @@ func start_phase(phase: Phase) -> void:
 			await get_tree().create_timer(1.0).timeout
 			can_advance = true
 		Phase.HARBOR_WITH_THRUST:
-			phase_label.text = "Welcome to Cleveland! Can you navigate the Mather into port using your thrusters?"
+			phase_label.text = "Can you navigate the Mather into port using your thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
 

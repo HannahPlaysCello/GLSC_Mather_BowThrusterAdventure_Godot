@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cahffqal8yekd"]
+[gd_scene load_steps=10 format=3 uid="uid://cahffqal8yekd"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeMode.gd" id="1_2xit4"]
 [ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_n572g"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="5_domf5"]
 [ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_dtltn"]
 [ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="7_h7cxx"]
+[ext_resource type="Texture2D" uid="uid://ou1mkgxishfd" path="res://Assets/compassBackground.PNG" id="8_lw7xb"]
+[ext_resource type="Texture2D" uid="uid://143ssnrumjs4" path="res://Assets/compassPointer.PNG" id="9_u3iel"]
 
 [node name="ChallengeMode" type="Node2D"]
 script = ExtResource("1_2xit4")
@@ -43,7 +45,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -920.0
-offset_top = -475.0
+offset_top = -500.0
 offset_right = -285.0
 offset_bottom = -350.0
 grow_horizontal = 2
@@ -52,7 +54,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("7_dtltn")
 theme_override_font_sizes/font_size = 36
-text = "Label text"
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="Labels"]
@@ -120,31 +121,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -671.0
-offset_top = -143.5
+offset_top = -143.0
 offset_right = 671.0
-offset_bottom = 77.5
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_dtltn")
 theme_override_font_sizes/font_size = 50
-text = "In 1964, the William G. Mather became the first cargo ship on the Great Lakes to have bow thrusters installed!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="Labels/Overlay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -294.0
-offset_top = 55.0
-offset_right = 294.0
-offset_bottom = 103.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_dtltn")
-theme_override_font_sizes/font_size = 36
-text = "Press the start button to continue"
+[node name="CompassBase" type="Sprite2D" parent="Labels"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("8_lw7xb")
+
+[node name="CompassArrow" type="Sprite2D" parent="Labels"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("9_u3iel")

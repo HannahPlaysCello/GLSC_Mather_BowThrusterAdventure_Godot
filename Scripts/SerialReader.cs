@@ -9,7 +9,7 @@ public partial class SerialReader : Node
 
 	private SerialPort serialPort;
 	[Export] public string PortName = "COM5";
-	[Export] public int BaudRate = 9600;
+	[Export] public int BaudRate = 115200;
 	[Export] public float ReconnectInterval = 3.0f;
 
 	//private Label outputLabel;
@@ -77,12 +77,10 @@ public partial class SerialReader : Node
 			serialPort = new SerialPort(PortName, BaudRate);
 			serialPort.Open();
 			GD.Print("Connected to " + PortName);
-			//outputLabel.Text = "Connected to " + PortName;
 		}
 		catch (Exception ex)
 		{
 			GD.PrintErr("Failed to connect: " + ex.Message);
-			//outputLabel.Text = "Failed to connect. Retrying in " + ReconnectInterval + " seconds...";
 		}
 	}
 

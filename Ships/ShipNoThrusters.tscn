@@ -55,6 +55,7 @@ script = ExtResource("1_42lgn")
 limit_left = 0
 limit_top = -1340
 limit_right = 8768
+limit_bottom = 1400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
