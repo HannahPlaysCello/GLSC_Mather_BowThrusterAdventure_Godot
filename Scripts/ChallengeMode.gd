@@ -66,10 +66,13 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Can you navigate Collision Bend without thrusters?"
 			load_map(river_map_scene)
 			spawn_ship_instance(normal_ship_scene)
+			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 		Phase.HARBOR_NO_THRUST:
 			phase_label.text = "Can you navigate the Mather into port without thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(normal_ship_scene)
+			$Labels/CompassArrow.rotation = 0
+			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 		Phase.TRANSITION:
 			overlay.visible = true
 			overlay.get_node("Label").text = "In 1964, the William G. Mather became the first cargo ship on the Great Lakes to have bow thrusters installed!\nPress the green button to continue."
@@ -77,6 +80,8 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Try navigating Collision Bend with bow thrusters"
 			load_map(river_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
+			$Labels/CompassArrow.rotation = 0
+			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 			can_advance = false
 			await get_tree().create_timer(1.0).timeout
 			can_advance = true
@@ -84,6 +89,8 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Can you navigate the Mather into port using your thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
+			$Labels/CompassArrow.rotation = 0
+			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 
 func load_map(map_scene: PackedScene) -> void:
 	if tilemap:

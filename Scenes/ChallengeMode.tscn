@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cahffqal8yekd"]
+[gd_scene load_steps=12 format=3 uid="uid://cahffqal8yekd"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeMode.gd" id="1_2xit4"]
 [ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_n572g"]
@@ -9,6 +9,8 @@
 [ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="7_h7cxx"]
 [ext_resource type="Texture2D" uid="uid://ou1mkgxishfd" path="res://Assets/compassBackground.PNG" id="8_lw7xb"]
 [ext_resource type="Texture2D" uid="uid://143ssnrumjs4" path="res://Assets/compassPointer.PNG" id="9_u3iel"]
+[ext_resource type="Script" path="res://Scripts/CompassArrow.gd" id="10_lodmf"]
+[ext_resource type="Texture2D" uid="uid://bgv154tctxgae" path="res://Assets/collisionFlash.PNG" id="11_35g3s"]
 
 [node name="ChallengeMode" type="Node2D"]
 script = ExtResource("1_2xit4")
@@ -141,3 +143,13 @@ texture = ExtResource("8_lw7xb")
 position = Vector2(1725, 900)
 scale = Vector2(2, 2)
 texture = ExtResource("9_u3iel")
+script = ExtResource("10_lodmf")
+
+[node name="CollisionEffect" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="SplashBorder" type="TextureRect" parent="CollisionEffect"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_35g3s")

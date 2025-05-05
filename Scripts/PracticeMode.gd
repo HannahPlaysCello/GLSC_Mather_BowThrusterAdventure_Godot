@@ -12,6 +12,8 @@ var tilemap
 @onready var instruction_popup: Control = preload("res://Scenes/InstructionPopup.tscn").instantiate()
 var waiting_for_key_release = false
 
+@onready var splash_overlay := $CollisionEffect/SplashBorder
+@onready var splash_timer := $CollisionEffect/SplashTimer
 var practice_collisions = 0
 
 func _ready():
@@ -19,11 +21,12 @@ func _ready():
 	score_label.visible = true
 	load_selected_map()
 	spawn_selected_ship()
+	ship.heading_changed.connect($CanvasLayer/CompassArrow._on_heading_changed) #connect to rotation
 	add_child(instruction_popup)
 	
-	var instructions := "Use the wheel to steer the ship using the rudder. Press the green start button to start and stop the ship."
+	var instructions := "Use the wheel to steer the ship using the rudder. Press the green button to start and stop the ship."
 	if GameState.selected_ship == GameState.ShipType.THRUSTERS:
-		instructions = "Use the wheel to steer the ship using the rudder & the triangular buttons to move sideways with the thrusters. Press the green start button to start and stop the ship."
+		instructions = "Use the wheel to steer the ship using the rudder & the triangular buttons to move sideways with the thrusters. Press the green button to start and stop the ship."
 
 	instruction_popup.show_popup(instructions)
 	instruction_popup.popup_dismissed.connect(on_popup_dismissed) 
@@ -62,7 +65,13 @@ func spawn_selected_ship():
 func _on_collision_detected():
 	practice_collisions += 1
 	score_label.text = "Collisions: " + str(practice_collisions)
-	
+	splash_overlay.visible = true
+	splash_timer.start()
+	#_on_SplashTimer_timeout()
+
+func _on_SplashTimer_timeout():
+	splash_overlay.visible = false
+
 func end_game():
 	GameState.practice_score = practice_collisions
 	Main.change_scene("res://Scenes/PracticeEndScreen.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du7eanxypg5e1"]
+[gd_scene load_steps=12 format=3 uid="uid://du7eanxypg5e1"]
 
 [ext_resource type="Script" path="res://Scripts/PracticeMode.gd" id="1_spxqi"]
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="2_dy6td"]
@@ -9,6 +9,8 @@
 [ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_muivb"]
 [ext_resource type="Texture2D" uid="uid://ou1mkgxishfd" path="res://Assets/compassBackground.PNG" id="8_tl21h"]
 [ext_resource type="Texture2D" uid="uid://143ssnrumjs4" path="res://Assets/compassPointer.PNG" id="9_ay3mt"]
+[ext_resource type="Script" path="res://Scripts/CompassArrow.gd" id="10_1npw6"]
+[ext_resource type="Texture2D" uid="uid://bgv154tctxgae" path="res://Assets/collisionFlash.PNG" id="11_i23ss"]
 
 [node name="PracticeMode" type="Node2D"]
 script = ExtResource("1_spxqi")
@@ -56,3 +58,21 @@ texture = ExtResource("8_tl21h")
 position = Vector2(1725, 900)
 scale = Vector2(2, 2)
 texture = ExtResource("9_ay3mt")
+script = ExtResource("10_1npw6")
+
+[node name="CollisionEffect" type="CanvasLayer" parent="."]
+
+[node name="SplashBorder" type="TextureRect" parent="CollisionEffect"]
+visible = false
+modulate = Color(1, 1, 1, 0.705882)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_i23ss")
+
+[node name="SplashTimer" type="Timer" parent="CollisionEffect"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CollisionEffect/SplashTimer" to="." method="_on_SplashTimer_timeout"]

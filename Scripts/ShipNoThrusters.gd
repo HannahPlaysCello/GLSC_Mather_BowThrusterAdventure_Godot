@@ -15,6 +15,11 @@ var turn_acceleration: float = 0.5
 var turn_deceleration: float = 5.0 
 var current_turn_velocity: float = 0.0  #negative is left, positive is right
 
+#compass
+@warning_ignore("unused_signal")
+signal heading_changed(new_heading: float)
+var last_heading = 0.0 
+
 #logic
 var scene 
 var challenge_mode = null
@@ -80,6 +85,10 @@ func _physics_process(delta: float) -> void:
 
 	current_turn_velocity = move_toward(current_turn_velocity, target_turn_velocity, turn_acceleration * delta)
 	rotation += current_turn_velocity * delta
+	
+	if rotation != last_heading:
+		emit_signal("heading_changed", rotation)
+		last_heading = rotation
 	
 	#MOVEMENT
 	var forward_vector = Vector2.RIGHT.rotated(rotation)

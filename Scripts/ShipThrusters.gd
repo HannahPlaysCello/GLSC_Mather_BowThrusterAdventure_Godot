@@ -15,6 +15,11 @@ var turn_acceleration: float = 0.5  # How quickly we reach our target turn veloc
 var turn_deceleration: float = 5.0  # Used for decaying the encoder input
 var current_turn_velocity: float = 0.0  # Negative is left, positive is right
 
+#compass
+@warning_ignore("unused_signal")
+signal heading_changed(new_heading: float)
+var last_heading = 0.0 
+
 #thruster vars
 var lateral_speed = 100.0  # Max sideways velocity
 var lateral_acceleration = 50.0
@@ -84,6 +89,11 @@ func _physics_process(delta: float) -> void:
 	
 	current_turn_velocity = move_toward(current_turn_velocity, target_turn_velocity, turn_acceleration * delta)
 	rotation += current_turn_velocity * delta
+	
+	#compass
+	if rotation != last_heading:
+		emit_signal("heading_changed", rotation)
+		last_heading = rotation
 	
 	#thruster movement
 	var lateral_input: int = 0
