@@ -1,4 +1,5 @@
 extends Node2D
+# GDScript 2.0
 
 enum Phase {
 	NAVIGATE_NO_THRUST,
@@ -26,6 +27,7 @@ var waiting_for_key_release: bool = false
 @onready var overlay: Control = $Labels/Overlay
 @onready var score_label: Label = $Labels/ScoreLabel
 @onready var instruction_popup: Control = preload("res://Scenes/InstructionPopup.tscn").instantiate()
+@onready var splash_overlay := $CollisionEffect/SplashBorder
 
 func _ready() -> void:
 	add_child(instruction_popup)
@@ -66,11 +68,13 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Can you navigate Collision Bend without thrusters?"
 			load_map(river_map_scene)
 			spawn_ship_instance(normal_ship_scene)
+			ship.collision_happened.connect(_on_collision_detected)
 			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 		Phase.HARBOR_NO_THRUST:
 			phase_label.text = "Can you navigate the Mather into port without thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(normal_ship_scene)
+			ship.collision_happened.connect(_on_collision_detected)
 			$Labels/CompassArrow.rotation = 0
 			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 		Phase.TRANSITION:
@@ -80,6 +84,7 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Try navigating Collision Bend with bow thrusters"
 			load_map(river_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
+			ship.collision_happened.connect(_on_collision_detected)
 			$Labels/CompassArrow.rotation = 0
 			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 			can_advance = false
@@ -89,6 +94,7 @@ func start_phase(phase: Phase) -> void:
 			phase_label.text = "Can you navigate the Mather into port using your thrusters?"
 			load_map(harbor_map_scene)
 			spawn_ship_instance(thruster_ship_scene)
+			ship.collision_happened.connect(_on_collision_detected)
 			$Labels/CompassArrow.rotation = 0
 			ship.heading_changed.connect($Labels/CompassArrow._on_heading_changed) 
 
@@ -117,16 +123,25 @@ func advance_challenge_phase() -> void:
 			start_phase(Phase.HARBOR_NO_THRUST)
 		Phase.HARBOR_NO_THRUST:
 			GameState.collisions_no_thrusters = GameState.collision_count
-			GameState.reset_collision_count()
 			start_phase(Phase.TRANSITION)
+			GameState.reset_collision_count()
 		Phase.NAVIGATE_WITH_THRUST:
 			start_phase(Phase.HARBOR_WITH_THRUST)
 		Phase.HARBOR_WITH_THRUST:
 			GameState.collisions_with_thrusters = GameState.collision_count
-			GameState.reset_collision_count()
 			Main.change_scene("res://Scenes/ChallengeEndScreen.tscn")
 		_:
 			pass
+
+func _on_collision_detected() -> void:
+	print("collision detected on collision detected fucntion") 
+	splash_overlay.visible = true
+	await get_tree().create_timer(0.1).timeout
+	splash_overlay.visible = false
+	await get_tree().create_timer(0.05).timeout
+	splash_overlay.visible = true
+	await get_tree().create_timer(0.1).timeout
+	splash_overlay.visible = false
 
 func _process(_delta: float) -> void:
 	score_label.text = "Collisions: " + str(GameState.collision_count)

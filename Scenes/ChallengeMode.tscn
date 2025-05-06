@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cahffqal8yekd"]
+[gd_scene load_steps=11 format=3 uid="uid://cahffqal8yekd"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeMode.gd" id="1_2xit4"]
 [ext_resource type="PackedScene" uid="uid://bg70b3c56d74m" path="res://Ships/ShipNoThrusters.tscn" id="2_n572g"]
 [ext_resource type="PackedScene" uid="uid://bcfooqbcg3g2n" path="res://Ships/ShipThrusters.tscn" id="3_lptt4"]
-[ext_resource type="PackedScene" uid="uid://dw3vejw387fa1" path="res://Maps/CollisionBend.tscn" id="4_nbihw"]
 [ext_resource type="PackedScene" uid="uid://dkq1l1sfno4fi" path="res://Maps/Harbor.tscn" id="5_domf5"]
 [ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="7_dtltn"]
 [ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="7_h7cxx"]
@@ -16,7 +15,7 @@
 script = ExtResource("1_2xit4")
 normal_ship_scene = ExtResource("2_n572g")
 thruster_ship_scene = ExtResource("3_lptt4")
-river_map_scene = ExtResource("4_nbihw")
+river_map_scene = ExtResource("5_domf5")
 harbor_map_scene = ExtResource("5_domf5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -32,6 +31,17 @@ color = Color(0.360784, 0.584314, 0.596078, 1)
 position = Vector2(40, 378)
 
 [node name="Labels" type="CanvasLayer" parent="."]
+
+[node name="CompassBase" type="Sprite2D" parent="Labels"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("8_lw7xb")
+
+[node name="CompassArrow" type="Sprite2D" parent="Labels"]
+position = Vector2(1725, 900)
+scale = Vector2(2, 2)
+texture = ExtResource("9_u3iel")
+script = ExtResource("10_lodmf")
 
 [node name="Panel2" type="Panel" parent="Labels"]
 offset_left = 25.0
@@ -134,21 +144,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CompassBase" type="Sprite2D" parent="Labels"]
-position = Vector2(1725, 900)
-scale = Vector2(2, 2)
-texture = ExtResource("8_lw7xb")
-
-[node name="CompassArrow" type="Sprite2D" parent="Labels"]
-position = Vector2(1725, 900)
-scale = Vector2(2, 2)
-texture = ExtResource("9_u3iel")
-script = ExtResource("10_lodmf")
-
 [node name="CollisionEffect" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SplashBorder" type="TextureRect" parent="CollisionEffect"]
+visible = false
+modulate = Color(1, 1, 1, 0.705882)
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)

@@ -101,8 +101,7 @@ func _physics_process(delta: float) -> void:
 		if collision and not GameState.is_colliding:
 			if scene == "ChallengeMode":
 				GameState.collision_count += 1
-			elif scene == "PracticeMode":
-				emit_signal("collision_happened")
+			emit_signal("collision_happened")
 			GameState.is_colliding = true
 		elif not collision:
 			GameState.is_colliding = false

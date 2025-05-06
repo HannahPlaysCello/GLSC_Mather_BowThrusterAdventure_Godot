@@ -13,7 +13,6 @@ var tilemap
 var waiting_for_key_release = false
 
 @onready var splash_overlay := $CollisionEffect/SplashBorder
-@onready var splash_timer := $CollisionEffect/SplashTimer
 var practice_collisions = 0
 
 func _ready():
@@ -65,11 +64,15 @@ func spawn_selected_ship():
 func _on_collision_detected():
 	practice_collisions += 1
 	score_label.text = "Collisions: " + str(practice_collisions)
-	splash_overlay.visible = true
-	splash_timer.start()
-	#_on_SplashTimer_timeout()
+	blink_twice()
 
-func _on_SplashTimer_timeout():
+func blink_twice():
+	splash_overlay.visible = true
+	await get_tree().create_timer(0.1).timeout  # flash 1 duration
+	splash_overlay.visible = false
+	await get_tree().create_timer(0.05).timeout  # quick pause between flashes
+	splash_overlay.visible = true
+	await get_tree().create_timer(0.1).timeout  # flash 2 duration
 	splash_overlay.visible = false
 
 func end_game():
