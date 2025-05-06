@@ -80,6 +80,10 @@ func start_phase(phase: Phase) -> void:
 		Phase.TRANSITION:
 			overlay.visible = true
 			overlay.get_node("Label").text = "In 1964, the William G. Mather became the first cargo ship on the Great Lakes to have bow thrusters installed!\nPress the green button to continue."
+			#if tilemap:
+				#tilemap.collision_layer = 0
+			if ship:
+				ship.set_physics_process(false)
 		Phase.NAVIGATE_WITH_THRUST:
 			phase_label.text = "Try navigating Collision Bend with bow thrusters"
 			load_map(river_map_scene)
@@ -134,7 +138,6 @@ func advance_challenge_phase() -> void:
 			pass
 
 func _on_collision_detected() -> void:
-	print("collision detected on collision detected fucntion") 
 	splash_overlay.visible = true
 	await get_tree().create_timer(0.1).timeout
 	splash_overlay.visible = false

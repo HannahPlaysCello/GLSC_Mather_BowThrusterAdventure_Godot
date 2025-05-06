@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdk4v1y472ymq"]
+[gd_scene load_steps=6 format=3 uid="uid://cdk4v1y472ymq"]
 
 [ext_resource type="Script" path="res://Scripts/ChallengeEndScreen.gd" id="1_0x4w1"]
 [ext_resource type="Texture2D" uid="uid://bf6bxw5n21edk" path="res://Assets/StartScreen.PNG" id="2_3l8fh"]
+[ext_resource type="StyleBox" uid="uid://br0o17jo6cw" path="res://UI/PopUpStyleBox.tres" id="3_v5e2e"]
 [ext_resource type="Theme" uid="uid://dqxlteoiwgwtx" path="res://UI/Header.tres" id="3_xy27j"]
 [ext_resource type="Theme" uid="uid://b57m6bdaqakuj" path="res://UI/ButtonHeader.tres" id="4_4f5w1"]
 
@@ -30,6 +31,36 @@ grow_vertical = 0
 scale = Vector2(2, 2)
 texture = ExtResource("2_3l8fh")
 
+[node name="ScorePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -165.0
+offset_right = 250.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("3_v5e2e")
+
+[node name="TitleMessagePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -818.0
+offset_top = -367.0
+offset_right = 818.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("3_v5e2e")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -55,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.5
-offset_top = -169.0
-offset_right = 119.5
-offset_bottom = -107.0
+offset_left = -130.0
+offset_top = -89.0
+offset_right = 130.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_xy27j")
@@ -70,9 +101,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -324.5
-offset_right = 324.5
-offset_bottom = 98.0
+offset_left = -430.0
+offset_top = 15.0
+offset_right = 430.0
+offset_bottom = 140.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 
